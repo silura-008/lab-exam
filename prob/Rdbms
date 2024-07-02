@@ -1,0 +1,36 @@
+// employeee
+
+create table employee(
+  Empid int primary key,
+  Ename varchar(25),
+  Salary int,
+  dept varchar(20),
+  age int
+);
+
+
+insert into employee values
+(101,'anoop',20000,'sales',30),
+(102,'nimal',30000,'service',34),
+(103,'uday',60000,'ad',25),
+(104,'renuka',7000,'service',28),
+(105,'shinu',12000,'sales',33),
+(106,'subash',16000,'ad',41),
+(107,'amal',23000,'service',21),
+(108,'janu',90000,'sales',24);
+select * from employee;
+
+select count(*) as no_emp from employee;
+
+select Ename,age,dept from employee where age 
+in(select max(age) from employee group by dept);
+
+select avg(Salary) as avg_salary,dept from employee group by dept;
+
+select max(salary) as sales_max from employee where dept='sales';
+
+
+
+
+
+
