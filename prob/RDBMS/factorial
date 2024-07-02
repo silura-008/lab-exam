@@ -1,0 +1,23 @@
+//factorial
+
+
+create or replace procedure factorial()
+language plpgsql
+as $$
+declare 
+  factorial int;
+  i int;
+  j int;
+  result int;
+begin 
+ for i in 1..10 loop
+ result:=1;
+  for j in 1..i loop
+    result= result*j;
+  end loop;
+ raise notice 'factorial of % is %',i,result;
+ end loop;
+end;
+$$;
+
+call factorial();
