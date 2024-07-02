@@ -1,0 +1,22 @@
+//radius - area
+
+create table areas(
+ radius int,
+ area numeric(5,2)
+);
+
+select * from areas;
+
+do $$
+ declare 
+  rd int:=3;
+  ar numeric(5,2);
+ begin
+  for rd in 3..7 loop
+   ar:= 3.14*(rd*rd);
+   insert into areas values(rd,ar);
+  end loop;
+end $$;
+
+select * from areas;
+ 
