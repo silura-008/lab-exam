@@ -1,0 +1,29 @@
+//elec_bill
+
+create table elec_bill(
+ cust_no int primary key,
+ cust_name varchar(20),
+ unit_consumed int,
+ amount numeric(10)
+); 
+
+insert into elec_bill values
+('101','geetha','6',NULL),
+('102','reenu','12',NULL),
+('103','unia','4',NULL),
+('104','prakash','7',NULL),
+('105','vishnu','9',NULL);
+
+select * from elec_bill;
+
+create or replace procedure bill_calc(no int,units int)
+language plpgsql
+as $$
+ begin 
+  update elec_bill set amount=units*3 where cust_no=no;
+end;
+$$;
+
+call bill_calc(105,9);
+
+select * from elec_bill;
