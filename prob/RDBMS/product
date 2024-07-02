@@ -1,0 +1,31 @@
+//product
+
+create table product(
+ Product_code int primary key,
+ Product_name varchar(20),
+ category varchar(20),
+ qty int,
+ price int
+);
+
+insert into product values
+(101,'sandoor','bath soap',95,25),
+(102,'sunlight','washing powder',200,56),
+(103,'clogate','paste',70,15),
+(104,'close up','paste',999,20),
+(105,'life bouy','bath soap',300,25),
+(106,'ujala','washing powder',578,80),
+(107,'grambpoo','spice',5000,345);
+
+select * from product order by Product_name desc;
+
+select Product_code,Product_name from product where price between 20 and 50;
+
+select * from product where category in('paste','bath soap','washing powder');
+
+
+select * from product where qty<100 or qty>500;
+
+select Product_name from product where Product_name like 's%';
+
+select * from product where category!='paste';
